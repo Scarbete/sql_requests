@@ -116,10 +116,51 @@ VALUES ("Математика", 1),
 ("Физика", 3);
 ```
 
-## Связывает таблицы teacher и lesson по ID.
+## Связывает таблицы. получаем поля у которых ON === true 
 ```cmd
 SELECT teacher.surname, lesson.name 
 FROM teacher 
 INNER JOIN lesson 
 ON teacher.id = lesson.teacher_id;
+```
+
+## LEFT OUTER JOIN Связывает таблицы. и получаем всех
+```cmd
+SELECT teacher.surname, lesson.name 
+FROM teacher 
+LEFT OUTER JOIN lesson 
+ON teacher.id = lesson.teacher_id;
+```
+
+## RIGHT OUTER JOIN Связывает таблицы. и получаем всех
+```cmd
+SELECT teacher.surname, lesson.name 
+FROM teacher 
+RIGHT OUTER JOIN lesson 
+ON teacher.id = lesson.teacher_id;
+```
+
+## SELECT с Union объеденением нескольких таблиц в одну
+```cmd
+SELECT * FROM teacher UNION SELECT * FROM lesson;
+```
+
+## SELECT с AVG() - среднее значение поля
+```cmd
+SELECT AVG(age) FROM teacher;
+```
+
+## SELECT с MAX, MIN - самый максимальный и минимальный
+```cmd
+SELECT MAX(age), MIN(age) FROM teacher;
+```
+
+## SELECT с SUM() - сумма всех значений
+```cmd
+SELECT SUM(age) FROM teacher;
+```
+
+## SELECT с GROUP BY
+```cmd
+SELECT age, COUNT(age) FROM teacher GROUP BY age;
 ```
